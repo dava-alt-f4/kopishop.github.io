@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kopi Rindu</title>
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Signika:wght@300..700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pacifico&family=Signika:wght@300..700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- icons -->
+    <script src="https://unpkg.com/feather-icons"></script>
+    <style>
+      :root {
+        --primary: #a97458;
+        --bg: #010101;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        border: none;
+        box-sizing: border-box;
+        outline: none;
+        text-decoration: none;
+        color: #ffffff;
+      }
+      body {
+        font-family: "signika", sans-serif;
+        background-color: var(--bg);
+        height: 2000px;
+      }
+      /* mavbar */
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1.4rem 5%;
+        background-color: rgba(1, 1, 1, 0.3);
+        backdrop-filter: blur(2px);
+        border: 1px solid #513c28;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 100;
+      }
+      .navbar .navbar-name {
+        font-family: 'pacifico', cursive;
+        font-size: 2.377rem;
+        font-weight: 300;
+        font-style: italic;
+      }
+      .navbar-name span {
+        color: var(--primary);
+      }
+      .navbar-nav a{
+        display: inline-block;
+        font-size: 1.3rem;
+        margin: 0 1rem;
+        transition: all 0.2s ease-in-out;
+      }
+      .navbar-nav a:hover{
+        color: #B2A18F;
+      }
+      .navbar-nav a::after{
+        content: '';
+        display: block;
+        padding-bottom: 0.3rem;
+        border-bottom: 0.1rem solid var(--primary);
+        transform: scaleX(0);
+        transition: all ease-in-out 0.2s;
+      }
+      .navbar-nav a:hover::after{
+        transform: scaleX(1);
+      }
+      .navbar-xtra a{
+        margin: 0 0.5rem;
+      }
+      #ham-menu{
+        display: none;
+      }
+      /* Landing Page */
+      .landing{
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        background-image: url(asset/karl-chor-UvWlksgZGPE-unsplash.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        position: relative;
+      }
+      .landing::after{
+        content: '';
+        display: block;
+        position: absolute;
+        width: 100%;
+        height: 30%;
+        bottom: 0;
+        background:linear-gradient(0deg, rgba(1,1,3, 1) 15%, rgba(255, 255, 255, 0));
+      }
+      .content{
+        padding:1.4rem 5%;
+        max-width: 47rem;
+      }
+      .content h1{
+        color: whitesmoke;
+        font-size:5em;
+        text-shadow: 1px 1px 3px black;
+        line-height: 1;
+      }
+      .content span{
+        color: var(--primary);
+      }
+      .content p{
+        font-size: 1.4rem;
+        margin-top: 1rem;
+        font-weight: 200;
+      }
+      .content .cta{
+        margin-top: 1rem;
+        display: inline-block;
+        padding: 1rem 3rem;
+        font-size: 1.4rem;
+        background-color: var(--primary);
+        border-radius: 8px;
+        box-shadow: 1px 1px 3px black;
+      }
+
+      /* media queries */
+      /* laptop */
+      @media (max-width:1366px) {
+        html{
+          font-size: 75%;
+        }
+      }
+      /* tablet */
+      @media (max-width:768px) {
+        html{
+          font-size: 62.5%;
+        }
+        #ham-menu{
+          display: inline-block;
+        }
+        .navbar-nav{
+          position: absolute;
+          top: 100%;
+          right: -100%;
+          background-color: #ffffff;
+          width:20rem;
+          height: 45vh;
+          transition: all 0.7s ease-in-out;
+        }
+        .navbar-nav.active{
+          right: 0;
+        }
+        .navbar-nav a{
+          color: #513c28;
+          display: block;
+          margin: 1.5rem;
+          padding: 0.5rem;
+          font-size: 2rem;
+        }
+        .navbar-nav a::after{
+          transform-origin: 0 0;
+        }
+        .navbar-nav a:hover::after{
+          transform: scaleX(0.7);
+        }
+      }
+      /* mobile */
+      @media (max-width:450px) {
+        html{
+          font-size: 55%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- navbar start -->
+    <nav class="navbar">
+      <a href="#" class="navbar-name">Kopi<span>Rindu</span></a>
+      <div class="navbar-nav">
+        <a href="#">Beranda</a>
+        <a href="#">Tentang kami</a>
+        <a href="#">Menu</a>
+        <a href="#">Kontak</a>
+      </div>
+
+      <div class="navbar-xtra">
+        <a href="#" id="search"><i data-feather="search"></i></a>
+        <a href="#" id="cart"><i data-feather="shopping-cart"></i></a>
+        <a href="#" id="ham-menu"><i data-feather="menu"></i></a>
+      </div>
+    </nav>
+    <!-- navbar n -->
+
+    <!-- Landing page start -->
+    <section class="landing" id="home">
+      <main class="content">
+        <h1>Secangkir <span>Kopi</span> Tuk Hadapi Hari</h1>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
+        <a href="#" class="cta">Pesan Sekarang</a>
+      </main>
+    </section>
+    <!-- Landing page n -->
+
+    <!-- icons -->
+    <script>
+      feather.replace();
+    </script>
+  </body>
+  <script>
+    // Toggle menu
+    const navbarNav = document.querySelector('.navbar-nav');
+    // onclick
+    document.querySelector('#ham-menu').onclick = () => {
+      navbarNav.classList.toggle('active');
+    }
+    // toggle off sidebar
+    const hamburger = document.querySelector('#ham-menu');
+    document.addEventListener('click', (e) => {
+      if(!hamburger.contains(e.target) && !navbarNav.contains(e.target)){
+        navbarNav.classList.remove('active');
+      }
+    });
+  </script>
+</html>
