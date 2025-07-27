@@ -22,7 +22,7 @@
     <style>
       :root {
         --primary: #a97458;
-        --bg: #010101;
+        --bg: #0d0700;
       }
       * {
         margin: 0;
@@ -32,18 +32,19 @@
         outline: none;
         text-decoration: none;
         color: #ffffff;
+        scroll-behavior: smooth;
       }
       body {
         font-family: "signika", sans-serif;
         background-color: var(--bg);
-        height: 2000px;
+        object-position: center;
       }
       /* mavbar */
       .navbar {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 1.4rem 5%;
+        padding: 0.7rem 5%;
         background-color: rgba(1, 1, 1, 0.3);
         backdrop-filter: blur(2px);
         border: 1px solid #513c28;
@@ -54,79 +55,79 @@
         z-index: 100;
       }
       .navbar .navbar-name {
-        font-family: 'pacifico', cursive;
-        font-size: 2.377rem;
+        font-family: "pacifico", cursive;
+        font-size: 2.2rem;
         font-weight: 300;
         font-style: italic;
       }
       .navbar-name span {
         color: var(--primary);
       }
-      .navbar-nav a{
+      .navbar-nav a {
         display: inline-block;
         font-size: 1.3rem;
         margin: 0 1rem;
         transition: all 0.2s ease-in-out;
       }
-      .navbar-nav a:hover{
-        color: #B2A18F;
+      .navbar-nav a:hover {
+        color: #b2a18f;
       }
-      .navbar-nav a::after{
-        content: '';
+      .navbar-nav a::after {
+        content: "";
         display: block;
         padding-bottom: 0.3rem;
         border-bottom: 0.1rem solid var(--primary);
         transform: scaleX(0);
         transition: all ease-in-out 0.2s;
       }
-      .navbar-nav a:hover::after{
+      .navbar-nav a:hover::after {
         transform: scaleX(1);
       }
-      .navbar-xtra a{
+      .navbar-xtra a {
         margin: 0 0.5rem;
       }
-      #ham-menu{
+      #ham-menu {
         display: none;
       }
       /* Landing Page */
-      .landing{
+      .landing {
         min-height: 100vh;
         display: flex;
         align-items: center;
-        background-image: url(asset/karl-chor-UvWlksgZGPE-unsplash.jpg);
+        background-image: url(asset/landing.jpg);
         background-repeat: no-repeat;
         background-size: cover;
         background-position: center;
         position: relative;
       }
-      .landing::after{
-        content: '';
+      .landing::after {
+        content: "";
         display: block;
         position: absolute;
         width: 100%;
         height: 30%;
         bottom: 0;
-        background:linear-gradient(0deg, rgba(1,1,3, 1) 15%, rgba(255, 255, 255, 0));
+        background: linear-gradient(0deg, #0d0700 15%, rgba(255, 255, 255, 0));
       }
-      .content{
-        padding:1.4rem 5%;
+      .content {
+        padding: 1.4rem 5%;
         max-width: 47rem;
       }
-      .content h1{
+      .content h1 {
         color: whitesmoke;
-        font-size:5em;
+        font-size: 5em;
         text-shadow: 1px 1px 3px black;
         line-height: 1;
       }
-      .content span{
+      .content span {
         color: var(--primary);
       }
-      .content p{
+      .content p {
         font-size: 1.4rem;
         margin-top: 1rem;
         font-weight: 200;
       }
-      .content .cta{
+      .content .cta {
         margin-top: 1rem;
         display: inline-block;
         padding: 1rem 3rem;
@@ -136,50 +137,258 @@
         box-shadow: 1px 1px 3px black;
       }
 
+      /* About section */
+      .about,
+      .menu,
+      .contact {
+        padding: 8rem 7% 1.4rem;
+        min-height: 100vh;
+      }
+      .about h2,
+      .menu h2,
+      .contact h2 {
+        text-align: center;
+        font-size: 2.6rem;
+        margin-bottom: 3rem;
+      }
+      .about span,
+      .menu span,
+      .contact span {
+        color: var(--primary);
+      }
+      .row {
+        display: flex;
+      }
+      .row .about-img {
+        flex: 1 1 45rem;
+      }
+      .about-img img {
+        width: 100%;
+      }
+      .row .content {
+        flex: 1 1 35rem;
+        padding: 0 1rem;
+      }
+      .row .content h3 {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+      }
+      .row .content p {
+        margin-bottom: 0.8rem;
+        font-size: 1.5rem;
+        font-weight: 100;
+        line-height: 1.6rem;
+      }
+
+      /* Menu section */
+      .menu {
+        min-height: 100vh;
+      }
+      .menu h2,
+      .contact h2 {
+        margin-bottom: 1rem;
+      }
+      .menu p {
+        text-align: center;
+      }
+      .menu .row {
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: 5rem;
+        justify-content: center;
+        gap: 2rem;
+        column-gap: 4rem;
+      }
+      .menu .row .menu-card {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        background-color: #784c35;
+        min-height: 15rem;
+        width: 250px;
+        border-radius: 10px;
+        padding: 25px;
+      }
+      .menu-card img {
+        align-self: center;
+        max-width: 100px;
+      }
+      .menu-card .menu-card-title {
+        text-align: center;
+        margin-top: 1.5rem;
+      }
+      .menu-card .menu-card-price {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        background-color: var(--primary);
+        color: white;
+        font-size: 1.4rem;
+        padding: 0.6rem;
+        border-radius: 10px 0 10px 0;
+        font-family: sans-serif;
+      }
+
+      /* Contact Section */
+      .contact {
+        min-height: 100vh;
+      }
+      .contact p {
+        text-align: center;
+        margin: auto;
+        max-width: 30rem;
+        font-weight: 100;
+        line-height: 1.6rem;
+      }
+      .contact .row {
+        display: flex;
+        margin-top: 2rem;
+      }
+      .row .map {
+        flex: 1 1 45rem;
+        width: 100%;
+        object-fit: cover;
+      }
+      .row form {
+        flex: 1 1 45rem;
+        padding: 5rem 2rem;
+        text-align: center;
+      }
+      form .input-group {
+        display: flex;
+        align-items: center;
+        margin-top: 2rem;
+        background-color: rgb(49, 49, 49);
+        border: 1px solid white;
+        padding-left: 2rem;
+      }
+      .input-group input {
+        width: 100%;
+        padding: 2rem;
+        font-size: 1.7rem;
+        background: none;
+      }
+      form .btn {
+        margin-top: 3rem;
+        display: inline-block;
+        padding: 1rem 3rem;
+        font-size: 1.7rem;
+        background-color: var(--primary);
+        border: 1px solid white;
+        border-radius: 10px;
+        cursor: pointer;
+      }
+
+      /* Footer */
+      footer {
+        background-color: var(--primary);
+        text-align: center;
+        padding: 1rem 0;
+      }
+      footer .link{
+        display: flex;
+        justify-content: center;
+        margin-bottom: 1rem;
+        align-items: center;
+        column-gap: 2rem;
+      }
+      .socials {
+        padding: 1rem 0;
+      }
+      .socials a {
+        display: flex;
+        flex-direction: row;
+        color: #ffffff;
+        margin: 1rem;
+      }
+      .links a {
+        padding: 0.7rem 1rem;
+        display: flex;
+        flex-direction: row;
+        line-height: 0.5rem;
+      }
+
       /* media queries */
       /* laptop */
-      @media (max-width:1366px) {
-        html{
+      @media (max-width: 1366px) {
+        html {
           font-size: 75%;
         }
       }
+
       /* tablet */
-      @media (max-width:768px) {
-        html{
+      @media (max-width: 768px) {
+        html {
           font-size: 62.5%;
         }
-        #ham-menu{
+        #ham-menu {
           display: inline-block;
         }
-        .navbar-nav{
+        .navbar-nav {
           position: absolute;
           top: 100%;
           right: -100%;
           background-color: #ffffff;
-          width:20rem;
+          width: 20rem;
           height: 45vh;
           transition: all 0.7s ease-in-out;
         }
-        .navbar-nav.active{
+        .navbar-nav.active {
           right: 0;
         }
-        .navbar-nav a{
+        .navbar-nav a {
           color: #513c28;
           display: block;
           margin: 1.5rem;
           padding: 0.5rem;
           font-size: 2rem;
         }
-        .navbar-nav a::after{
+        .navbar-nav a::after {
           transform-origin: 0 0;
         }
-        .navbar-nav a:hover::after{
+        .navbar-nav a:hover::after {
           transform: scaleX(0.7);
         }
+        .about .row {
+          flex-wrap: wrap;
+        }
+        .about-img img {
+          height: 24rem;
+          object-fit: cover;
+        }
+        .about .row .content {
+          padding: 0;
+        }
+        .row .content h3 {
+          margin-top: 1rem;
+          font-size: 2.4rem;
+        }
+        .row .content p {
+          font-size: 1.6rem;
+        }
+        .menu .row .menu-card {
+          width: 120px;
+        }
+        .menu .row .menu-card img {
+          max-width: 50px;
+        }
+        .menu .row .menu-card-title {
+          font-size: 1.6rem;
+        }
+        .contact .row {
+          flex-wrap: wrap;
+        }
+        .row .map {
+          height: 30rem;
+        }
+        .row form {
+          padding-top: 0;
+        }
       }
+
       /* mobile */
-      @media (max-width:450px) {
-        html{
+      @media (max-width: 450px) {
+        html {
           font-size: 55%;
         }
       }
@@ -190,10 +399,10 @@
     <nav class="navbar">
       <a href="#" class="navbar-name">Kopi<span>Rindu</span></a>
       <div class="navbar-nav">
-        <a href="#">Beranda</a>
-        <a href="#">Tentang kami</a>
-        <a href="#">Menu</a>
-        <a href="#">Kontak</a>
+        <a href="#home">Beranda</a>
+        <a href="#about">Tentang kami</a>
+        <a href="#menu">Menu</a>
+        <a href="#contact">Kontak</a>
       </div>
 
       <div class="navbar-xtra">
@@ -207,12 +416,137 @@
     <!-- Landing page start -->
     <section class="landing" id="home">
       <main class="content">
-        <h1>Secangkir <span>Kopi</span> Tuk Hadapi Hari</h1>
+        <h1>Secangkir <span>Kopi</span> 'Tuk Hadapi Hari</h1>
         <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
         <a href="#" class="cta">Pesan Sekarang</a>
       </main>
     </section>
     <!-- Landing page n -->
+
+    <!-- about section start -->
+    <section id="about" class="about">
+      <h2><span>Tentang</span> Kami</h2>
+
+      <div class="row">
+        <div class="about-img">
+          <img src="/asset/about.jpg" alt="Tentang Kami" />
+        </div>
+        <div class="content">
+          <h3>Kenapa harus Kopi Rindu?</h3>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus
+            facilis nihil illo quis voluptas velit.
+          </p>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam
+            asperiores, maxime, odit quos ex sunt eos magnam adipisci harum
+            sapiente optio vitae enim a, quaerat amet corporis deserunt nihil.
+            Dolore!
+          </p>
+        </div>
+      </div>
+    </section>
+    <!-- about section n -->
+
+    <!-- menu Section start -->
+    <section id="menu" class="menu">
+      <h2><span>Menu</span> Kami</h2>
+
+      <div class="row">
+        <div class="menu-card">
+          <img src="asset/1.png" alt="Americano" class="menu-card-img" />
+          <h3 class="menu-card-title">Americano</h3>
+          <span class="menu-card-price">18k</span>
+        </div>
+        <div class="menu-card">
+          <img src="asset/2.png" alt="Espresso" class="menu-card-img" />
+          <h3 class="menu-card-title">Espresso</h3>
+          <span class="menu-card-price">18k</span>
+        </div>
+        <div class="menu-card">
+          <img src="asset/3.png" alt="Iced Matcha" class="menu-card-img" />
+          <h3 class="menu-card-title">Iced Matcha</h3>
+          <span class="menu-card-price">18k</span>
+        </div>
+        <div class="menu-card">
+          <img src="asset/4.png" alt="Iced Latte" class="menu-card-img" />
+          <h3 class="menu-card-title">Iced Latte</h3>
+          <span class="menu-card-price">18k</span>
+        </div>
+        <div class="menu-card">
+          <img src="asset/5.png" alt="Iced Americano" class="menu-card-img" />
+          <h3 class="menu-card-title">Iced Americano</h3>
+          <span class="menu-card-price">18k</span>
+        </div>
+        <div class="menu-card">
+          <img
+            src="asset/6.png"
+            alt="Iced White Coffee"
+            class="menu-card-img"
+          />
+          <h3 class="menu-card-title">Iced White Coffee</h3>
+          <span class="menu-card-price">18k</span>
+        </div>
+      </div>
+    </section>
+    <!-- menu Section n -->
+
+    <!-- Contact Section Start -->
+    <section id="contact" class="contact">
+      <h2><span>Kontak</span> Kami</h2>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio,
+        rerum?
+      </p>
+
+      <div class="row">
+        <iframe
+          class="map"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3957.4327009112885!2d112.73140327545927!3d-7.305187692702628!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7fb9ef4d7d9ed%3A0x5959ad479fd46d02!2sSMK%20Negeri%201%20Surabaya!5e0!3m2!1sid!2sid!4v1753597921407!5m2!1sid!2sid"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+
+        <form action="">
+          <div class="input-group">
+            <i data-feather="user"></i>
+            <input type="text" placeholder="Nama" />
+          </div>
+          <div class="input-group">
+            <i data-feather="mail"></i>
+            <input type="email" placeholder="Email" />
+          </div>
+          <div class="input-group">
+            <i data-feather="phone"></i>
+            <input type="text" placeholder="no. telp" />
+          </div>
+          <button type="submit" class="btn">Kirim pesan</button>
+        </form>
+      </div>
+    </section>
+    <!-- Contact Section n -->
+
+    <!-- Footer -->
+    <footer>
+      <div class="link">
+        <div class="socials">
+          <a href="#"><i data-feather="instagram"></i></a>
+          <a href="#"><i data-feather="facebook"></i></a>
+          <a href="#"><i data-feather="twitter"></i></a>
+        </div>
+
+        <div class="links">
+          <a href="#home">Home</a>
+          <a href="#about">Tentang Kami</a>
+          <a href="#menu">Menu</a>
+          <a href="#contact">Kontak</a>
+        </div>
+      </div>
+      <div class="credit">
+        <p>Created By <a href="">Dava-alt-f4</a>. | &copy; 2025.</p>
+      </div>
+    </footer>
 
     <!-- icons -->
     <script>
@@ -221,16 +555,16 @@
   </body>
   <script>
     // Toggle menu
-    const navbarNav = document.querySelector('.navbar-nav');
+    const navbarNav = document.querySelector(".navbar-nav");
     // onclick
-    document.querySelector('#ham-menu').onclick = () => {
-      navbarNav.classList.toggle('active');
-    }
+    document.querySelector("#ham-menu").onclick = () => {
+      navbarNav.classList.toggle("active");
+    };
     // toggle off sidebar
-    const hamburger = document.querySelector('#ham-menu');
-    document.addEventListener('click', (e) => {
-      if(!hamburger.contains(e.target) && !navbarNav.contains(e.target)){
-        navbarNav.classList.remove('active');
+    const hamburger = document.querySelector("#ham-menu");
+    document.addEventListener("click", (e) => {
+      if (!hamburger.contains(e.target) && !navbarNav.contains(e.target)) {
+        navbarNav.classList.remove("active");
       }
     });
   </script>
