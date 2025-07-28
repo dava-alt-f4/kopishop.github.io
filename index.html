@@ -23,6 +23,7 @@
       :root {
         --primary: #a97458;
         --bg: #0d0700;
+        --bg-light: #dfeaec;
       }
       * {
         margin: 0;
@@ -31,13 +32,19 @@
         box-sizing: border-box;
         outline: none;
         text-decoration: none;
-        color: #ffffff;
+        color: white;
         scroll-behavior: smooth;
+      }
+      .tulisan.light {
+        color: black;
       }
       body {
         font-family: "signika", sans-serif;
         background-color: var(--bg);
         object-position: center;
+      }
+      body.light {
+        background-color: var(--bg-light);
       }
       /* mavbar */
       .navbar {
@@ -62,6 +69,12 @@
       }
       .navbar-name span {
         color: var(--primary);
+      }
+      #dark {
+        display: none;
+      }
+      #light {
+        display: inline-block;
       }
       .navbar-nav a {
         display: inline-block;
@@ -109,6 +122,13 @@
         bottom: 0;
         background: linear-gradient(0deg, #0d0700 15%, rgba(255, 255, 255, 0));
       }
+      .landing.light::after {
+        background: linear-gradient(
+          0deg,
+          var(--bg-light) 15%,
+          rgba(255, 255, 255, 0)
+        );
+      }
       .content {
         padding: 1.4rem 5%;
         max-width: 47rem;
@@ -122,10 +142,11 @@
       .content span {
         color: var(--primary);
       }
-      .content p {
+      .landing .content p {
         font-size: 1.4rem;
         margin-top: 1rem;
         font-weight: 200;
+        color: white;
       }
       .content .cta {
         margin-top: 1rem;
@@ -209,6 +230,10 @@
         border-radius: 10px;
         padding: 25px;
       }
+      .menu .row .menu-card.light {
+        background: none;
+        box-shadow: 3px 3px 6px #b8b9be, -3px -3px 6px #fff;
+      }
       .menu-card img {
         align-self: center;
         max-width: 100px;
@@ -216,6 +241,9 @@
       .menu-card .menu-card-title {
         text-align: center;
         margin-top: 1.5rem;
+      }
+      .menu-card .menu-card-title.light {
+        color: black;
       }
       .menu-card .menu-card-price {
         position: absolute;
@@ -285,7 +313,7 @@
         text-align: center;
         padding: 1rem 0;
       }
-      footer .link{
+      footer .link {
         display: flex;
         justify-content: center;
         margin-bottom: 1rem;
@@ -406,6 +434,12 @@
       </div>
 
       <div class="navbar-xtra">
+        <a href="#" id="dark" class="theme" onclick="darkTheme"
+          ><i data-feather="moon"></i
+        ></a>
+        <a href="#" id="light" class="theme" onclick="lightTheme"
+          ><i data-feather="sun"></i
+        ></a>
         <a href="#" id="search"><i data-feather="search"></i></a>
         <a href="#" id="cart"><i data-feather="shopping-cart"></i></a>
         <a href="#" id="ham-menu"><i data-feather="menu"></i></a>
@@ -425,19 +459,19 @@
 
     <!-- about section start -->
     <section id="about" class="about">
-      <h2><span>Tentang</span> Kami</h2>
+      <h2 class="tulisan"><span>Tentang</span> Kami</h2>
 
       <div class="row">
         <div class="about-img">
           <img src="/asset/about.jpg" alt="Tentang Kami" />
         </div>
         <div class="content">
-          <h3>Kenapa harus Kopi Rindu?</h3>
-          <p>
+          <h3 class="tulisan">Kenapa harus Kopi Rindu?</h3>
+          <p class="tulisan">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus
             facilis nihil illo quis voluptas velit.
           </p>
-          <p>
+          <p class="tulisan">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam
             asperiores, maxime, odit quos ex sunt eos magnam adipisci harum
             sapiente optio vitae enim a, quaerat amet corporis deserunt nihil.
@@ -450,7 +484,7 @@
 
     <!-- menu Section start -->
     <section id="menu" class="menu">
-      <h2><span>Menu</span> Kami</h2>
+      <h2 class="tulisan"><span>Menu</span> Kami</h2>
 
       <div class="row">
         <div class="menu-card">
@@ -493,8 +527,8 @@
 
     <!-- Contact Section Start -->
     <section id="contact" class="contact">
-      <h2><span>Kontak</span> Kami</h2>
-      <p>
+      <h2 class="tulisan"><span>Kontak</span> Kami</h2>
+      <p class="tulisan">
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio,
         rerum?
       </p>
@@ -567,5 +601,54 @@
         navbarNav.classList.remove("active");
       }
     });
+    // Toggle light/dark mode
+    const dark = document.querySelector("#dark");
+    const light = document.querySelector("#light");
+    const body = document.querySelector("body");
+    const tulisans = document.querySelectorAll(".tulisan");
+    const gradient = document.querySelector(".landing");
+    const produk = document.querySelectorAll(".menu-card, .menu-card-title");
+    // check Theme
+    if (localStorage.getItem("Theme") === "light") {
+      lightTheme();
+    } else {
+      darkTheme();
+    }
+    // darkTheme
+    function darkTheme() {
+      body.classList.remove("light");
+      gradient.classList.remove("light");
+
+      tulisans.forEach((element) => {
+        element.classList.remove("light");
+      });
+
+      produk.forEach((element) => {
+        element.classList.remove("light");
+      });
+
+      dark.style.display = "none";
+      light.style.display = "inline-block";
+
+      localStorage.setItem("Theme", "dark");
+    }
+
+    // lightTheme
+    function lightTheme() {
+      body.classList.add("light");
+      gradient.classList.add("light");
+      tulisans.forEach((element) => {
+        element.classList.add("light");
+      });
+      produk.forEach((element) => {
+        element.classList.add("light");
+      });
+      light.style.display = "none";
+      dark.style.display = "inline-block";
+      localStorage.setItem("Theme", "light");
+    }
+    // trigger click
+    dark.addEventListener("click", darkTheme);
+    light.addEventListener("click", lightTheme);
   </script>
 </html>
